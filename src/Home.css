@@ -1,0 +1,27 @@
+.home {
+  flex: 0.4;
+}
+
+.home__input {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border: 1px solid red;
+  padding: 10px 0;
+}
+
+.home__input img {
+  flex: 0.2;
+  height: 30px;
+}
+
+.home__input form {
+  width: 100%;
+}
+
+.home__input form input {
+  padding: 10px 0;
+  border-radius: 50px;
+  width: 99%;
+  outline: none;
+}

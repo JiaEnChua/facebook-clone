@@ -1,0 +1,62 @@
+.post {
+  padding: 10px;
+  height: fit-content;
+  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.post__header {
+  display: flex;
+  align-items: center;
+}
+
+.post__ppic {
+  height: 30px;
+  margin-right: 5px;
+}
+
+.post__message {
+  height: 100%;
+  padding: 10px;
+}
+
+.post__stats {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  align-items: center;
+}
+
+.post__statsLike {
+  flex: 0.2;
+}
+
+.post__statsComment {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+.post__statsShare {
+  flex: 0.2;
+}
+
+.post__actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.post__actions > button {
+  height: 30px;
+  width: 100%;
+  border: none;
+  background-color: white;
+}
+
+.post__actions > button:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
