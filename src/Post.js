@@ -6,31 +6,29 @@ import { useSelector } from "react-redux";
 import { selectName, selectImage } from "./userSlice";
 
 function Post({ name, message, timestamp, image, likes, postID }) {
-  const [liked, setLiked] = useState(false);
   const [likedID, setLikedID] = useState("");
   const loggedInName = useSelector(selectName);
   const postRef = db.collection("posts").doc(postID);
 
   const handleLike = () => {
-    if (liked) {
-      postRef.update({
-        likes: firebase.firestore.FieldValue.increment(-1),
-      });
+    if (likedID) {
       postRef
         .collection("likes")
         .doc(likedID)
         .delete()
         .then(() => {
           console.log("Document successfully deleted!");
-          setLiked(false);
+          setLikedID("");
+        })
+        .then(() => {
+          postRef.update({
+            likes: firebase.firestore.FieldValue.increment(-1),
+          });
         })
         .catch((error) => {
           console.error("Error removing document: ", error);
         });
     } else {
-      postRef.update({
-        likes: firebase.firestore.FieldValue.increment(1),
-      });
       postRef
         .collection("likes")
         .add({
@@ -40,7 +38,11 @@ function Post({ name, message, timestamp, image, likes, postID }) {
         .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);
           setLikedID(docRef.id);
-          setLiked(true);
+        })
+        .then(() => {
+          postRef.update({
+            likes: firebase.firestore.FieldValue.increment(1),
+          });
         })
         .catch((error) => {
           console.error("Error adding document: ", error);
@@ -55,7 +57,6 @@ function Post({ name, message, timestamp, image, likes, postID }) {
       .then(function (querySnapshot) {
         querySnapshot.forEach((doc) => {
           if (doc.data().name === loggedInName) {
-            setLiked(true);
             setLikedID(doc.id);
           }
         });
@@ -85,7 +86,7 @@ function Post({ name, message, timestamp, image, likes, postID }) {
       <div className="post__actions">
         <button
           onClick={handleLike}
-          className={liked ? "post__likedButton" : "post__likeButton"}
+          className={likedID ? "post__likedButton" : "post__likeButton"}
         >
           👍 Like
         </button>
