@@ -20,11 +20,11 @@ function Post({ name, message, timestamp, image, likes, postID }) {
         .collection("likes")
         .doc(likedID)
         .delete()
-        .then(function () {
+        .then(() => {
           console.log("Document successfully deleted!");
           setLiked(false);
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.error("Error removing document: ", error);
         });
     } else {
@@ -37,12 +37,12 @@ function Post({ name, message, timestamp, image, likes, postID }) {
           name: name,
           image: image,
         })
-        .then(function (docRef) {
+        .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);
           setLikedID(docRef.id);
           setLiked(true);
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.error("Error adding document: ", error);
         });
     }
@@ -53,7 +53,7 @@ function Post({ name, message, timestamp, image, likes, postID }) {
       .collection("likes")
       .get()
       .then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
+        querySnapshot.forEach((doc) => {
           if (doc.data().name === loggedInName) {
             setLiked(true);
             setLikedID(doc.id);
@@ -78,7 +78,7 @@ function Post({ name, message, timestamp, image, likes, postID }) {
 
       <p className="post__message">{message}</p>
       <div className="post__stats">
-        <div className="post__statsLike">💌👍 {likes}</div>
+        <div className="post__statsLike">👍 {likes}</div>
         <div className="post__statsComment">2 Comments</div>
         <div className="post__statsShare">6 Shares</div>
       </div>
