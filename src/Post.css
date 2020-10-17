@@ -60,3 +60,11 @@
   background-color: lightgray;
   cursor: pointer;
 }
+
+.post__likedButton {
+  background-color: lightgray !important;
+}
+
+.post__likeButton {
+  background-color: white !important;
+}

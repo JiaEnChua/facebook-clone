@@ -14,18 +14,19 @@ function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("submit >> ", input);
     db.collection("posts").add({
       name: name,
       message: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       image: image,
+      likes: 0,
     });
     setInput("");
   };
 
   useEffect(() => {
-    db.collection("posts")
+    const unsubscribe = db
+      .collection("posts")
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>
         setPosts(
@@ -35,7 +36,33 @@ function Home() {
           }))
         )
       );
+    return () => {
+      unsubscribe();
+    };
   }, []);
+
+  //   useEffect(() => {
+  //     db.collection("posts")
+  //       .get()
+  //       .then((snapshot) => {
+  //         snapshot.docs.map((doc) => {
+  //           doc.collection("likes").onSnapshot((snap) => {
+  //             console.log(snap);
+  //           });
+  //         });
+  //       });
+  //   }, []);
+
+  //   useEffect(() => {
+  //     db.collection("posts")
+  //       .doc("FWGPdB4bnK8taxpKEpfM")
+  //       .collection("likes")
+  //       .onSnapshot((snap) => {
+  //         console.log("size >>> ", snap.size);
+  //       });
+  //   }, []);
+
+  //   console.log("posts >>> ", posts);
 
   return (
     <div className="home">
@@ -51,11 +78,13 @@ function Home() {
       </div>
       {posts.map((post) => (
         <Post
+          key={post.id}
           name={post.data.name}
           message={post.data.message}
           timestamp={post.data.timestamp}
           image={post.data.image}
-          key={post.id}
+          likes={post.data.likes}
+          postID={post.id}
         />
       ))}
     </div>
