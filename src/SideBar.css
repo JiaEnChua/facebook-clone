@@ -1,16 +1,6 @@
 .sidebar {
   flex: 0.3;
-}
-
-.sidebar__user {
   display: flex;
-  align-items: center;
-}
-
-.sidebar__user img {
-  height: 30px;
-}
-
-.sidebar__user p {
-  margin-left: 10px;
+  flex-direction: column;
+  margin: 20px 10px;
 }
