@@ -1,3 +1,7 @@
+.comment__hidden {
+  display: none;
+}
+
 .post {
   padding: 10px;
   height: fit-content;
@@ -24,8 +28,8 @@
 
 .post__stats {
   display: flex;
-  border-bottom: 1px solid lightgray;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .post__statsLike {
@@ -44,9 +48,10 @@
 }
 
 .post__actions {
-  margin-top: 10px;
   display: flex;
   justify-content: space-evenly;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
 .post__actions > button {
@@ -54,6 +59,8 @@
   width: 100%;
   border: none;
   background-color: white;
+  margin: 5px 0;
+  outline: none;
 }
 
 .post__actions > button:hover {
@@ -67,4 +74,8 @@
 
 .post__likeButton {
   background-color: white !important;
+}
+
+.post__likeButton:hover {
+  background-color: lightgray !important;
 }

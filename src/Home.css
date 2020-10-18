@@ -13,6 +13,7 @@
 .home__input img {
   flex: 0.2;
   height: 30px;
+  margin-right: 10px;
 }
 
 .home__input form {
@@ -20,8 +21,10 @@
 }
 
 .home__input form input {
-  padding: 10px 0;
+  width: 95%;
+  border: none;
   border-radius: 50px;
-  width: 99%;
+  padding: 10px;
+  background-color: lightgray;
   outline: none;
 }

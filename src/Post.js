@@ -4,9 +4,11 @@ import db from "./firebase";
 import firebase from "firebase";
 import { useSelector } from "react-redux";
 import { selectName, selectImage } from "./userSlice";
+import Comments from "./Comments";
 
 function Post({ name, message, timestamp, image, likes, postID }) {
   const [likedID, setLikedID] = useState("");
+  const [hideComment, setHideComment] = useState(true);
   const loggedInName = useSelector(selectName);
   const postRef = db.collection("posts").doc(postID);
 
@@ -50,6 +52,10 @@ function Post({ name, message, timestamp, image, likes, postID }) {
     }
   };
 
+  const handleComment = () => {
+    setHideComment(!hideComment);
+  };
+
   useEffect(() => {
     postRef
       .collection("likes")
@@ -90,8 +96,12 @@ function Post({ name, message, timestamp, image, likes, postID }) {
         >
           👍 Like
         </button>
-        <button>Comment</button>
+        <button onClick={handleComment}>Comment</button>
         <button>⤵ Share</button>
+      </div>
+
+      <div className={hideComment ? "comment__hidden" : "comment_show"}>
+        <Comments postID={postID} />
       </div>
     </div>
   );

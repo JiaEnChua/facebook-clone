@@ -3,8 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    name: null,
-    image: "",
+    name: "Jeff Bezos",
+    image: "https://www.gstatic.com/tv/thumb/persons/532529/532529_v9_bb.jpg",
+    // name: null,
+    // image: "",
   },
   reducers: {
     login: (state, action) => {

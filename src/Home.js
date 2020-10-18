@@ -41,29 +41,6 @@ function Home() {
     };
   }, []);
 
-  //   useEffect(() => {
-  //     db.collection("posts")
-  //       .get()
-  //       .then((snapshot) => {
-  //         snapshot.docs.map((doc) => {
-  //           doc.collection("likes").onSnapshot((snap) => {
-  //             console.log(snap);
-  //           });
-  //         });
-  //       });
-  //   }, []);
-
-  //   useEffect(() => {
-  //     db.collection("posts")
-  //       .doc("FWGPdB4bnK8taxpKEpfM")
-  //       .collection("likes")
-  //       .onSnapshot((snap) => {
-  //         console.log("size >>> ", snap.size);
-  //       });
-  //   }, []);
-
-  //   console.log("posts >>> ", posts);
-
   return (
     <div className="home">
       <div className="home__input">

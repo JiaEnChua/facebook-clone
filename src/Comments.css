@@ -1,0 +1,54 @@
+.comments__input {
+  margin: 10px 0;
+  display: flex;
+}
+
+.comments__input img {
+  margin-right: 10px;
+  height: 30px;
+}
+
+.comments__input form {
+  width: 100%;
+}
+
+.comments__input form input {
+  width: 95%;
+  border: none;
+  border-radius: 50px;
+  padding: 10px;
+  background-color: lightgray;
+  outline: none;
+}
+
+.comments__showBoxContainer {
+  margin: 10px 0;
+  display: flex;
+}
+
+.comments__showBoxContainer img {
+  height: 30px;
+  width: 30px;
+}
+
+.comments__showBoxContainerComment {
+  margin-left: 10px;
+}
+
+.comments__showBoxContainerCommentNoTime {
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+  border-radius: 10px;
+  width: fit-content;
+  padding: 10px;
+}
+
+.comments__showBoxContainerCommentNoTimeText {
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.comments__showBoxContainerCommentTime {
+  font-size: 10px;
+}
