@@ -2,16 +2,20 @@ import React, { useEffect, useState } from "react";
 import "./Post.css";
 import db from "./firebase";
 import firebase from "firebase";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectName, selectImage } from "./userSlice";
 import Comments from "./Comments";
 import { Avatar } from "@material-ui/core";
+import { showLikes } from "./postSlice";
 
 function Post({ name, message, timestamp, image, likes, postID, comments }) {
   const [likedID, setLikedID] = useState("");
   const [hideComment, setHideComment] = useState(true);
   const loggedInName = useSelector(selectName);
+  const loggedInImage = useSelector(selectImage);
   const postRef = db.collection("posts").doc(postID);
+  const dispatch = useDispatch();
+  const [allLikedPeople, setAllLikedPeople] = useState([]);
 
   const handleLike = () => {
     if (likedID) {
@@ -35,8 +39,8 @@ function Post({ name, message, timestamp, image, likes, postID, comments }) {
       postRef
         .collection("likes")
         .add({
-          name: name,
-          image: image,
+          name: loggedInName,
+          image: loggedInImage,
         })
         .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);
@@ -57,11 +61,44 @@ function Post({ name, message, timestamp, image, likes, postID, comments }) {
     setHideComment(!hideComment);
   };
 
+  const handleShare = (e) => {
+    // e.preventDefault();
+    // db.collection("posts").add({
+    //   name: loggedInName,
+    //   message: input,
+    //   timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    //   image: loggedInImage,
+    //   likes: 0,
+    //   comments: 0,
+    // });
+  };
+
+  const handleClickLikes = () => {
+    dispatch(
+      showLikes({
+        show: true,
+        likes: allLikedPeople,
+      })
+    );
+  };
+
+  useEffect(() => {
+    postRef.collection("likes").onSnapshot((snapshot) =>
+      setAllLikedPeople(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    return () => {};
+  }, []);
+
   useEffect(() => {
     postRef
       .collection("likes")
       .get()
-      .then(function (querySnapshot) {
+      .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           if (doc.data().name === loggedInName) {
             setLikedID(doc.id);
@@ -86,9 +123,11 @@ function Post({ name, message, timestamp, image, likes, postID, comments }) {
 
       <p className="post__message">{message}</p>
       <div className="post__stats">
-        <div className="post__statsLike">👍 {likes}</div>
+        <div className="post__statsLike" onClick={handleClickLikes}>
+          👍 {likes}
+        </div>
         <div className="post__statsComment">{comments} Comments</div>
-        <div className="post__statsShare">6 Shares</div>
+        <div className="post__statsShare">0 Shares</div>
       </div>
       <div className="post__actions">
         <button
@@ -98,7 +137,7 @@ function Post({ name, message, timestamp, image, likes, postID, comments }) {
           👍 Like
         </button>
         <button onClick={handleComment}>Comment</button>
-        <button>⤵ Share</button>
+        <button onClick={handleShare}>⤵ Share</button>
       </div>
 
       <div className={hideComment ? "comment__hidden" : "comment_show"}>

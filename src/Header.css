@@ -47,6 +47,13 @@
   color: rgb(104, 104, 104);
   height: 30px;
   width: 30px;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
+
+.header__middle .MuiSvgIcon-root:hover {
+  background-color: lightgray;
+  cursor: pointer;
 }
 
 .header__right {
@@ -56,12 +63,8 @@
   margin-left: auto;
 }
 
-.header__right img {
-  height: 40px;
-  margin-right: 10px;
-}
 .header__right p {
-  margin-right: 10px;
+  margin: 0 10px;
 }
 
 .header__right .MuiSvgIcon-root {

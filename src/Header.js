@@ -12,6 +12,7 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { useSelector, useDispatch } from "react-redux";
 import { selectName, selectImage, logout } from "./userSlice";
 import { auth } from "./firebase";
+import { Avatar } from "@material-ui/core";
 
 function Header() {
   const dispatch = useDispatch();
@@ -47,7 +48,7 @@ function Header() {
             <SupervisedUserCircleIcon />
           </div>
           <div className="header__right">
-            <img src={loggedInImage} alt="userpic" />
+            <Avatar src={loggedInImage} alt="userpic" />
             <p>{loggedInName}</p>
             <AddIcon />
             <QuestionAnswerIcon />

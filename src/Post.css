@@ -37,6 +37,10 @@
   flex: 0.2;
 }
 
+.post__statsLike:hover {
+  cursor: pointer;
+}
+
 .post__statsComment {
   display: flex;
   width: fit-content;

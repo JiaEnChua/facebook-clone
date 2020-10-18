@@ -1,5 +1,4 @@
 .app {
-  height: 100%;
 }
 
 .app_container {
@@ -8,4 +7,5 @@
 
 .app_containerContent {
   display: flex;
+  position: relative;
 }

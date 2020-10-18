@@ -1,0 +1,52 @@
+.likesPopUp.hide {
+  display: none;
+}
+
+.likesPopUp {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.likesPopUp__container {
+  height: 400px;
+  width: 550px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.likesPopUp__container .MuiSvgIcon-root {
+  padding: 10px;
+  border-radius: 50px;
+  background-color: lightgray;
+  margin: 5px;
+  margin-left: auto;
+}
+
+.likesPopUp__container .MuiSvgIcon-root:hover {
+  cursor: pointer;
+  background-color: gray;
+}
+
+.likesPopUp__containerLike {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  overflow-y: auto;
+}
+
+.likesPopUp__containerLike {
+  margin: 10px;
+}
+
+.likesPopUp__containerLike p {
+  margin-left: 10px;
+}
