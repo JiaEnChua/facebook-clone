@@ -14,22 +14,32 @@ function Comments({ postID }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postRef.collection("comments").add({
-      name: loggedInName,
-      image: loggedInImage,
-      text: input,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+    postRef
+      .collection("comments")
+      .add({
+        name: loggedInName,
+        image: loggedInImage,
+        text: input,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      })
+      .then(() => {
+        postRef.update({
+          comments: firebase.firestore.FieldValue.increment(1),
+        });
+      });
+    setInput("");
   };
+
   useEffect(() => {
-    postRef.collection("comments").onSnapshot((snapshot) => {
-      setComments(
-        snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
-      );
-    });
-    return () => {
-      // cleanup
-    };
+    postRef
+      .collection("comments")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        setComments(
+          snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+        );
+      });
+    return () => {};
   }, []);
 
   return (

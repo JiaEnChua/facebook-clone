@@ -20,6 +20,7 @@ function Home() {
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       image: image,
       likes: 0,
+      comments: 0,
     });
     setInput("");
   };
@@ -61,6 +62,7 @@ function Home() {
           timestamp={post.data.timestamp}
           image={post.data.image}
           likes={post.data.likes}
+          comments={post.data.comments}
           postID={post.id}
         />
       ))}

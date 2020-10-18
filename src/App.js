@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Header from "./Header";
 import Home from "./Home";
 import SideBar from "./SideBar";
 import Login from "./Login";
@@ -14,9 +15,12 @@ function App() {
     <div className="app">
       {name ? (
         <div className="app_container">
-          <SideBar />
-          <Home />
-          <RightBar />
+          <Header />
+          <div className="app_containerContent">
+            <SideBar />
+            <Home />
+            <RightBar />
+          </div>
         </div>
       ) : (
         <Login />

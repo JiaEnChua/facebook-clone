@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { selectName, selectImage } from "./userSlice";
 import Comments from "./Comments";
 
-function Post({ name, message, timestamp, image, likes, postID }) {
+function Post({ name, message, timestamp, image, likes, postID, comments }) {
   const [likedID, setLikedID] = useState("");
   const [hideComment, setHideComment] = useState(true);
   const loggedInName = useSelector(selectName);
@@ -86,7 +86,7 @@ function Post({ name, message, timestamp, image, likes, postID }) {
       <p className="post__message">{message}</p>
       <div className="post__stats">
         <div className="post__statsLike">👍 {likes}</div>
-        <div className="post__statsComment">2 Comments</div>
+        <div className="post__statsComment">{comments} Comments</div>
         <div className="post__statsShare">6 Shares</div>
       </div>
       <div className="post__actions">

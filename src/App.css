@@ -1,4 +1,3 @@
-.app_container {
+.app_containerContent {
   display: flex;
-  height: 100vh;
 }
