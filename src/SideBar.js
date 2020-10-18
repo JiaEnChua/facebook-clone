@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./SideBar.css";
-import { useSelector, useDispatch } from "react-redux";
-import { auth } from "./firebase";
-import { selectName, selectImage, logout } from "./userSlice";
+import { useSelector } from "react-redux";
+import { selectName, selectImage } from "./userSlice";
 import FlagIcon from "@material-ui/icons/Flag";
 import PeopleIcon from "@material-ui/icons/People";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
@@ -17,12 +16,6 @@ import SideBarRow from "./SideBarRow";
 function SideBar() {
   const loggedInName = useSelector(selectName);
   const loggedInImage = useSelector(selectImage);
-  const dispatch = useDispatch();
-  const logOut = () => {
-    auth.signOut().then(() => {
-      dispatch(logout());
-    });
-  };
 
   return (
     <div className="sidebar">
@@ -36,7 +29,6 @@ function SideBar() {
       <SideBarRow Icon={TimerIcon} title="Memories" />
       <SideBarRow Icon={BookmarkIcon} title="Saved" />
       <SideBarRow Icon={ArrowDropDownIcon} title="See More" arrow={true} />
-      <button onClick={logOut}>Logout</button>
     </div>
   );
 }

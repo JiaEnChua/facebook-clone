@@ -1,8 +1,13 @@
+.header__top {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
 .header {
   background-color: white;
   box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
-  position: sticky;
-  top: 0;
+
   padding: 15px 20px;
 }
 
@@ -32,6 +37,7 @@
 
 .header__middle {
   flex: 0.4;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -65,4 +71,28 @@
   border-radius: 50px;
   padding: 8px;
   color: white;
+}
+
+.header__right .MuiSvgIcon-root:hover {
+  background-color: rgb(140, 140, 140);
+  cursor: pointer;
+}
+
+.hedaer__logout {
+  background-color: white;
+  width: 200px;
+  padding: 15px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+}
+
+.hedaer__logout:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.hedaer__logoutHide {
+  display: none;
 }

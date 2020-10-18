@@ -5,6 +5,7 @@ import firebase from "firebase";
 import { useSelector } from "react-redux";
 import { selectName, selectImage } from "./userSlice";
 import Comments from "./Comments";
+import { Avatar } from "@material-ui/core";
 
 function Post({ name, message, timestamp, image, likes, postID, comments }) {
   const [likedID, setLikedID] = useState("");
@@ -74,7 +75,7 @@ function Post({ name, message, timestamp, image, likes, postID, comments }) {
   return (
     <div className="post">
       <div className="post__header">
-        <img alt="ppic" src={image} className="post__ppic"></img>
+        <Avatar alt="ppic" src={image} />
         <div className="post__headerRight">
           <span className="post_username">{name}</span>
           <p>

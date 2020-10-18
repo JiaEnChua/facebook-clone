@@ -1,0 +1,25 @@
+.login {
+  display: grid;
+  place-items: center;
+  margin: auto 0;
+  height: 100vh;
+  background-color: #f1f2f5;
+}
+
+.login__logos img {
+  height: 150px;
+}
+
+.login__logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login button {
+  padding: 20px 20px;
+  background-color: #4267b2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
