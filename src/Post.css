@@ -5,10 +5,10 @@
 .post {
   padding: 10px;
   height: fit-content;
-  border: 1px solid green;
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+  background-color: white;
 }
 
 .post__header {
