@@ -1,8 +1,12 @@
 .rightBar {
   margin-left: auto;
+  flex: 0.3;
+  display: flex;
+  width: 100%;
+  border: 1px solid red;
 }
 
 .rightBar iframe {
-  border: none;
-  overflow: hidden;
+  position: fixed;
+  right: 0;
 }

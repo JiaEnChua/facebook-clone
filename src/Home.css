@@ -1,4 +1,5 @@
 .home {
   flex: 0.4;
   margin: 15px auto;
+  border: 1px solid green;
 }

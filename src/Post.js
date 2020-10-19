@@ -126,7 +126,9 @@ function Post({ name, message, timestamp, image, likes, postID, comments }) {
         <div className="post__statsLike" onClick={handleClickLikes}>
           👍 {likes}
         </div>
-        <div className="post__statsComment">{comments} Comments</div>
+        <div className="post__statsComment" onClick={handleComment}>
+          {comments} Comments
+        </div>
         <div className="post__statsShare">0 Shares</div>
       </div>
       <div className="post__actions">

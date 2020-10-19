@@ -19,16 +19,18 @@ function SideBar() {
 
   return (
     <div className="sidebar">
-      <SideBarRow src={loggedInImage} title={loggedInName} />
-      <SideBarRow Icon={FlagIcon} title="Pages" />
-      <SideBarRow Icon={PeopleIcon} title="Friends" />
-      <SideBarRow Icon={SupervisedUserCircleIcon} title="Groups" />
-      <SideBarRow Icon={StorefrontIcon} title="Marketplace" />
-      <SideBarRow Icon={LiveTvIcon} title="Watch" />
-      <SideBarRow Icon={EventNoteIcon} title="Events" />
-      <SideBarRow Icon={TimerIcon} title="Memories" />
-      <SideBarRow Icon={BookmarkIcon} title="Saved" />
-      <SideBarRow Icon={ArrowDropDownIcon} title="See More" arrow={true} />
+      <div className="sidebar__container">
+        <SideBarRow src={loggedInImage} title={loggedInName} />
+        <SideBarRow Icon={FlagIcon} title="Pages" />
+        <SideBarRow Icon={PeopleIcon} title="Friends" />
+        <SideBarRow Icon={SupervisedUserCircleIcon} title="Groups" />
+        <SideBarRow Icon={StorefrontIcon} title="Marketplace" />
+        <SideBarRow Icon={LiveTvIcon} title="Watch" />
+        <SideBarRow Icon={EventNoteIcon} title="Events" />
+        <SideBarRow Icon={TimerIcon} title="Memories" />
+        <SideBarRow Icon={BookmarkIcon} title="Saved" />
+        <SideBarRow Icon={ArrowDropDownIcon} title="See More" arrow={true} />
+      </div>
     </div>
   );
 }

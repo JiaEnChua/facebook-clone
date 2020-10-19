@@ -12,12 +12,14 @@ function LikesPopUp({ hideCSS }) {
     dispatch(showLikes(false));
   };
 
-  console.log("SelectLikes >>> ", likes);
+  // console.log("SelectLikes >>> ", likes);
 
   return (
     <div className={"likesPopUp " + hideCSS}>
       <div className="likesPopUp__container">
-        <ClearIcon onClick={closePopUp} />
+        <div className="likesPopUp__containerCross">
+          <ClearIcon onClick={closePopUp} />
+        </div>
         {likes?.map((like) => (
           <div className="likesPopUp__containerLike">
             <Avatar src={like.data.image} alt="" />

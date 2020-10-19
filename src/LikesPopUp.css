@@ -3,7 +3,7 @@
 }
 
 .likesPopUp {
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
   display: grid;
@@ -23,15 +23,20 @@
   flex-direction: column;
 }
 
-.likesPopUp__container .MuiSvgIcon-root {
+.likesPopUp__containerCross {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+}
+
+.likesPopUp__containerCross .MuiSvgIcon-root {
   padding: 10px;
   border-radius: 50px;
   background-color: lightgray;
-  margin: 5px;
+  margin: 10px;
   margin-left: auto;
 }
 
-.likesPopUp__container .MuiSvgIcon-root:hover {
+.likesPopUp__containerCross .MuiSvgIcon-root:hover {
   cursor: pointer;
   background-color: gray;
 }
