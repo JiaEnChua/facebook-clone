@@ -1,7 +1,7 @@
 .header__top {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 3;
 }
 
 .header {
@@ -80,21 +80,20 @@
   cursor: pointer;
 }
 
-.hedaer__logout {
+.header__logout {
   background-color: white;
   width: 200px;
   padding: 15px;
   border-radius: 5px;
-  position: absolute;
-  z-index: 1;
+  position: fixed;
   right: 0;
 }
 
-.hedaer__logout:hover {
+.header__logout:hover {
   cursor: pointer;
   background-color: lightgray;
 }
 
-.hedaer__logoutHide {
+.header__logoutHide {
   display: none;
 }

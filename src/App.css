@@ -7,7 +7,4 @@
 
 .app_containerContent {
   display: flex;
-  position: relative;
-  height: 100%;
-  border: 1px solid green;
 }

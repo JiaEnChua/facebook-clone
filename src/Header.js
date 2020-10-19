@@ -57,7 +57,7 @@ function Header() {
           </div>
         </div>
       </div>
-      <div className={hideLogout ? "hedaer__logoutHide" : "hedaer__logout"}>
+      <div className={hideLogout ? "header__logoutHide" : "header__logout"}>
         <p onClick={logOut}>Logout</p>
       </div>
     </div>

@@ -13,6 +13,11 @@ import { useSelector } from "react-redux";
 function App() {
   const name = useSelector(selectName);
   const show = useSelector(selectShow);
+  if (show) {
+    document.documentElement.style.setProperty("overflow", "hidden");
+  } else {
+    document.documentElement.style.setProperty("overflow", "");
+  }
   return (
     <div className="app">
       {name ? (
