@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { showLikes, selectLikes } from "./postSlice";
 import { Avatar } from "@material-ui/core";
 
-function LikesPopUp({ hideCSS }) {
+function LikesPopUp({ hideCss }) {
   const dispatch = useDispatch();
   const likes = useSelector(selectLikes);
   const closePopUp = () => {
@@ -15,7 +15,7 @@ function LikesPopUp({ hideCSS }) {
   // console.log("SelectLikes >>> ", likes);
 
   return (
-    <div className={"likesPopUp " + hideCSS}>
+    <div className={"likesPopUp " + hideCss}>
       <div className="likesPopUp__container">
         <div className="likesPopUp__containerCross">
           <ClearIcon onClick={closePopUp} />

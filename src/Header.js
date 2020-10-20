@@ -9,15 +9,18 @@ import AddIcon from "@material-ui/icons/Add";
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import { useSelector, useDispatch } from "react-redux";
-import { selectName, selectImage, logout } from "./userSlice";
+import MenuIcon from "@material-ui/icons/Menu";
 import { auth } from "./firebase";
 import { Avatar } from "@material-ui/core";
+import { useSelector, useDispatch } from "react-redux";
+import { selectName, selectImage, logout } from "./userSlice";
+import { showLP, selectShowLP } from "./clickSlice";
 
 function Header() {
   const dispatch = useDispatch();
   const loggedInName = useSelector(selectName);
   const loggedInImage = useSelector(selectImage);
+  const showLPFlag = useSelector(selectShowLP);
   const [hideLogout, setHideLogout] = useState(true);
   const handleClick = () => {
     setHideLogout(!hideLogout);
@@ -27,6 +30,10 @@ function Header() {
     auth.signOut().then(() => {
       dispatch(logout());
     });
+  };
+
+  const showLeftPanel = () => {
+    dispatch(showLP(!showLPFlag));
   };
 
   return (
@@ -39,6 +46,9 @@ function Header() {
               alt="fblogo"
             />
             <input placeholder="Search Facebook"></input>
+            <div className="header__leftBurger" onClick={showLeftPanel}>
+              <MenuIcon />
+            </div>
           </div>
           <div className="header__middle">
             <HomeIcon />
@@ -50,9 +60,11 @@ function Header() {
           <div className="header__right">
             <Avatar src={loggedInImage} alt="userpic" />
             <p>{loggedInName}</p>
-            <AddIcon />
-            <QuestionAnswerIcon />
-            <NotificationsIcon />
+            <div className="header__rightFirstThree">
+              <AddIcon />
+              <QuestionAnswerIcon />
+              <NotificationsIcon />
+            </div>
             <ArrowDropDownIcon onClick={handleClick} />
           </div>
         </div>

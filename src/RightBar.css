@@ -1,11 +1,16 @@
 .rightBar {
-  margin-left: auto;
-  flex: 0.3;
-  display: flex;
-  width: 100%;
+  background-color: #f1f2f5;
+  width: 650px;
 }
 
-.rightBar iframe {
-  position: fixed;
+.rightBar__container {
   right: 0;
+  position: fixed;
+  height: 100%;
+}
+
+@media only screen and (max-width: 1300px) {
+  .rightBar {
+    display: none;
+  }
 }

@@ -34,6 +34,26 @@
   outline: none;
 }
 
+.header__leftBurger {
+  display: none;
+}
+
+@media only screen and (max-width: 1300px) {
+  .header__left input {
+    display: none;
+  }
+  .header__leftBurger {
+    display: flex;
+    align-items: center;
+  }
+  .header__leftBurger:hover {
+    cursor: pointer;
+    background-color: lightgray;
+    padding: 5px;
+    border-radius: 50px;
+  }
+}
+
 .header__middle {
   flex: 0.4;
   margin: 0 auto;
@@ -53,6 +73,12 @@
 .header__middle .MuiSvgIcon-root:hover {
   background-color: lightgray;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  .header__middle {
+    display: none;
+  }
 }
 
 .header__right {
@@ -78,6 +104,12 @@
 .header__right .MuiSvgIcon-root:hover {
   background-color: rgb(140, 140, 140);
   cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+  .header__rightFirstThree {
+    display: none;
+  }
 }
 
 .header__logout {

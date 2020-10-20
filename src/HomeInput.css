@@ -14,7 +14,7 @@
 
 .homeInput form {
   width: 95%;
-  margin-left: 10px;
+  margin: 0 10px;
 }
 
 .homeInput form input {
@@ -30,6 +30,12 @@
   display: flex;
   justify-content: space-evenly;
   margin-top: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .homeInput__actions {
+    display: none;
+  }
 }
 
 .homeInput__action {

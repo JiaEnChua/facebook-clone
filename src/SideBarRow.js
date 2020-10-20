@@ -11,8 +11,8 @@ function SideBarRow({ src, title, Icon, arrow }) {
           <Icon
             style={
               arrow && {
-                "background-color": "lightgray",
-                "border-radius": "50px",
+                backgroundColor: "lightgray",
+                borderRadius: "50px",
                 padding: "2px",
               }
             }

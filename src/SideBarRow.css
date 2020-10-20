@@ -2,6 +2,12 @@
   margin-bottom: 5px;
 }
 
+.sideBarRow:hover {
+  cursor: pointer;
+  background-color: rgb(226, 226, 226);
+  border-radius: 10px;
+}
+
 .sideBarRow__container .MuiSvgIcon-root {
   height: 30px;
   width: 30px;
@@ -16,10 +22,4 @@
 
 .sideBarRow p {
   margin-left: 15px;
-}
-
-.sideBarRow:hover {
-  cursor: pointer;
-  background-color: rgb(226, 226, 226);
-  border-radius: 10px;
 }

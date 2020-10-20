@@ -26,19 +26,21 @@ function Home() {
 
   return (
     <div className="home">
-      <HomeInput />
-      {posts.map((post) => (
-        <Post
-          key={post.id}
-          name={post.data.name}
-          message={post.data.message}
-          timestamp={post.data.timestamp}
-          image={post.data.image}
-          likes={post.data.likes}
-          comments={post.data.comments}
-          postID={post.id}
-        />
-      ))}
+      <div className="home__container">
+        <HomeInput />
+        {posts.map((post) => (
+          <Post
+            key={post.id}
+            name={post.data.name}
+            message={post.data.message}
+            timestamp={post.data.timestamp}
+            image={post.data.image}
+            likes={post.data.likes}
+            comments={post.data.comments}
+            postID={post.id}
+          />
+        ))}
+      </div>
     </div>
   );
 }

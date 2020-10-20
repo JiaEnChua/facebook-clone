@@ -1,6 +1,7 @@
 import React from "react";
 import "./SideBar.css";
 import { useSelector } from "react-redux";
+import { selectShowLP } from "./clickSlice";
 import { selectName, selectImage } from "./userSlice";
 import FlagIcon from "@material-ui/icons/Flag";
 import PeopleIcon from "@material-ui/icons/People";
@@ -16,9 +17,10 @@ import SideBarRow from "./SideBarRow";
 function SideBar() {
   const loggedInName = useSelector(selectName);
   const loggedInImage = useSelector(selectImage);
+  const showLP = useSelector(selectShowLP);
 
   return (
-    <div className="sidebar">
+    <div className={showLP ? "sidebar LP" : "sidebar"}>
       <div className="sidebar__container">
         <SideBarRow src={loggedInImage} title={loggedInName} />
         <SideBarRow Icon={FlagIcon} title="Pages" />

@@ -57,7 +57,7 @@
 }
 
 .post__statsShare {
-  flex: 0.2;
+  width: 80px;
 }
 
 .post__actions {
