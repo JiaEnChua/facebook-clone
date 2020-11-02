@@ -1,12 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState: {
     // name: "Jeff Bezos",
     // image: "https://www.gstatic.com/tv/thumb/persons/532529/532529_v9_bb.jpg",
     name: null,
-    image: "",
+    image: '',
   },
   reducers: {
     login: (state, action) => {
@@ -35,9 +35,6 @@ export const { login, logout } = userSlice.actions;
 //   }, 1000);
 // };
 
-// The function below is called a selector and allows us to select a value from
-// the state. Selectors can also be defined inline where they're used instead of
-// in the slice file. For example: `useSelector((state) => state.counter.value)`
 export const selectName = (state) => state.user.name;
 export const selectImage = (state) => state.user.image;
 
